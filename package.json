@@ -7,8 +7,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ui": "cd react-ui && npm run build",
+    "build:ui": "cd react-ui/ && npm run build",
     "deploy:heroku": "git push heroku main",
+    "heroku-postbuild": "cd react-ui/ && npm install && npm run build",
     "logs:prod": "heroku logs --tail"
   },
   "type": "module",
