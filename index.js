@@ -2,9 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 
+const PORT = process.env.PORT || 3001;
 const app = express();
-app.use(express.static('react-ui/build'));
 app.use(cors());
+app.use(express.static('./react-ui/build'));
 app.use(express.json());
 
 morgan.token('body', function (req, res) {
@@ -126,7 +127,6 @@ const unknownEndpoint = (request, response) => {
 
 app.use(unknownEndpoint);
 
-const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
