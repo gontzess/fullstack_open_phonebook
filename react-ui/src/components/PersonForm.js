@@ -13,6 +13,9 @@ const PersonForm = ({ persons, setPersons }) => {
         setNewName('')
         setNewNumber('')
       })
+      .catch(error => {
+        alert(error.response.data.error);
+      })
   }
 
   const updateExistingPerson = (id, formData) => {
@@ -30,7 +33,7 @@ const PersonForm = ({ persons, setPersons }) => {
         setNewNumber('')
       })
       .catch(error => {
-        alert(`Oops its seems ${formData.name} was already deleted`)
+        alert(error.response.data.error);
         setPersons(persons.filter(per => per.id !== id))
         setNewName('')
         setNewNumber('')

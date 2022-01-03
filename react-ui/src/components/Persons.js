@@ -4,13 +4,16 @@ import personService from '../services/persons'
 const Persons = ({ persons, setPersons, displayList }) => {
   const removePerson = (personToDelete) => {
     if (!window.confirm(`Delete ${personToDelete.name}?`)) {
-      return
+      return;
     }
 
     personService
       .deletePerson(personToDelete.id)
       .then(() => {
-        setPersons(persons.filter(person => person.id !== personToDelete.id))
+        setPersons(persons.filter(person => person.id !== personToDelete.id));
+      })
+      .catch(error => {
+        alert(error.response.data.error);
       })
   }
 
