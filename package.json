@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.11.1"
+  },
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
@@ -13,7 +17,6 @@
     "heroku-postbuild": "cd react-ui/ && npm install && npm run build",
     "logs:prod": "heroku logs --tail"
   },
-  "type": "module",
   "author": "Stephen Gontzes",
   "license": "ISC",
   "dependencies": {
